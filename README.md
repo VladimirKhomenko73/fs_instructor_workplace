@@ -5,17 +5,17 @@ This C# WPF project for instructor workplace of L410 airplane flight simulator. 
 The following panels are available to work:
 
 The indicators' panel:
-![Image](Pictures\Indicators.PNG "Indicators")
+![Image](Pictures/Indicators.PNG "Indicators")
 
 The flags panel:
 
-![Image](Pictures\Tabl.PNG "Flags")
+![Image](Pictures/Tabl.PNG "Flags")
 
 Conditions (you can see instructor log at right side of window):
 
-![Image](Pictures\Conditions.PNG "Conditions")
+![Image](Pictures/Conditions.PNG "Conditions")
 
-Failurs panel:
+Failures panel:
 
-![Image](Pictures\Failures.PNG "Failurs")
+![Image](Pictures/Failures.PNG "Failurs")
 
