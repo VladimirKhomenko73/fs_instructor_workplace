@@ -1,0 +1,516 @@
+﻿<UserControl x:Class="TL410InstructorsWorkplace.View.SignalsPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TL410InstructorsWorkplace.View"
+             xmlns:viewModel="clr-namespace:TL410InstructorsWorkplace.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="973" d:DesignWidth="1149">
+    <Grid Background="Black" Margin="-2,0,2,0">
+        <Grid HorizontalAlignment="Left" Height="188" Margin="115,44,0,0" VerticalAlignment="Top" Width="953">
+            <Grid.DataContext>
+                <viewModel:SignalPanelViewModel/>
+            </Grid.DataContext>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" Background="{Binding fFIRE1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="ПОЖАР" Height="22" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTF1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="0">
+                <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Mk TMT" Height="47" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="24,-1,20,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fSC1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="0">
+                <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="НАСОС ФЛЮГИР." Height="47" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fHYD1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="0">
+                <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Text="ГИДРАВЛ." Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fOL1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="ДАВЛ МАСЛА" Height="47" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fCEBO1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="1">
+                <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Text="ЦЭБО" Height="21" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="23,12,21,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFI1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="1">
+                <TextBlock x:Name="textBlock6" TextWrapping="Wrap" Text="ДИАПАЗОН ß" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fIPSPROP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3"  Grid.Column="1">
+                <TextBlock x:Name="textBlock7" TextWrapping="Wrap" Text="ПОС ВИНТА" Height="47" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,-1,3,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Text="ДАВЛ. ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fISOLVAVLE1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="2">
+                <TextBlock x:Name="textBlock9" TextWrapping="Wrap" Text="ИЗОЛИР. КЛАПАН" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGENERATOR1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="2">
+                <TextBlock x:Name="textBlock10" TextWrapping="Wrap" Text="ГЕНЕР." Height="20" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,10,7,15" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fICESEP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3"  Grid.Column="2">
+                <TextBlock x:Name="textBlock11" TextWrapping="Wrap" Text="СЕПАР. ЛЬДА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                <TextBlock x:Name="textBlock12" TextWrapping="Wrap" Text="МИН ЗАПАС ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTR1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="3">
+                <TextBlock x:Name="textBlock13" TextWrapping="Wrap" Text="ПРЕОБР. I" Height="22" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="4,11,4,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTR3Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="3">
+                <TextBlock x:Name="textBlock14" TextWrapping="Wrap" Text="ПРЕОБР. III" Height="23" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,9,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fICELight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="3">
+                <TextBlock x:Name="textBlock15" TextWrapping="Wrap" Text="ОБЛЕД." Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFBYPASS1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                <TextBlock x:Name="textBlock16" TextWrapping="Wrap" Text="ПЕРЕПУСК ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTR2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="4">
+                <TextBlock x:Name="textBlock17" TextWrapping="Wrap" Text="ПРЕОБР. II" Height="22" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,12,3,11" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fNISLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="4">
+                <TextBlock x:Name="textBlock18" TextWrapping="Wrap" Text="ЗАПУСК" Height="23" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,9,9,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="4"/>
+            <Border BorderBrush="Black" Background="{Binding fFUELPUMPLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                <TextBlock x:Name="textBlock20" TextWrapping="Wrap" Text="ПЕРЕКАЧ ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fSTALLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="5">
+                <TextBlock x:Name="textBlock21" TextWrapping="Wrap" Text="СРЫВ" Height="22" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="24,10,20,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFASLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="5">
+                <TextBlock x:Name="textBlock22" TextWrapping="Wrap" Text="АЭРОДР. ИСТОЧ." Height="47" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="5"/>
+            <Border BorderBrush="Black" Background="{Binding fFBYPASS2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                <TextBlock x:Name="textBlock24" TextWrapping="Wrap" Text="ПЕРЕПУСК ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="6"/>
+            <Border BorderBrush="Black" Background="{Binding fBATTLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="6">
+                <TextBlock x:Name="textBlock26" TextWrapping="Wrap" Text="АККУМ" Height="21" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,12,9,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fCALLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="6">
+                <TextBlock x:Name="textBlock27" TextWrapping="Wrap" Text="ВЫЗОВ" Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="7">
+                <TextBlock x:Name="textBlock28" TextWrapping="Wrap" Text="МИН ЗАПАС ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fWHEELLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="7">
+                <TextBlock x:Name="textBlock29" TextWrapping="Wrap" Text="ПЕРЕД. КОЛЕС" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fLOWALCLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="7">
+                <TextBlock x:Name="textBlock30" TextWrapping="Wrap" Text="МИНИМУМ СПИРТА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="7"/>
+            <Border BorderBrush="Black" Background="{Binding fTP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                <TextBlock x:Name="textBlock32" TextWrapping="Wrap" Text="ДАВЛ. ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fISOLVAVLE2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="8">
+                <TextBlock x:Name="textBlock33" TextWrapping="Wrap" Text="ИЗОЛИР. КЛАПАН" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGENERATOR2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="8">
+                <TextBlock x:Name="textBlock34" TextWrapping="Wrap" Text="ГЕНЕР." Height="20" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,10,7,15" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fICESEP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="8">
+                <TextBlock x:Name="textBlock35" TextWrapping="Wrap" Text="СЕПАР. ЛЬДА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fOL2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                <TextBlock x:Name="textBlock36" TextWrapping="Wrap" Text="ДАВЛ МАСЛА" Height="47" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fCEBO2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="9" >
+                <TextBlock x:Name="textBlock37" TextWrapping="Wrap" Text="ЦЭБО" Height="21" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="23,12,21,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFI2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="9">
+                <TextBlock x:Name="textBlock38" TextWrapping="Wrap" Text="ДИАПАЗОН ß" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fIPSPROP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="9">
+                <TextBlock x:Name="textBlock39" TextWrapping="Wrap" Text="ПОС ВИНТА" Height="47" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,-1,3,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFIRE2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="10">
+                <TextBlock x:Name="textBlock40" TextWrapping="Wrap" Text="ПОЖАР" Height="22" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTF2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="10">
+                <TextBlock x:Name="textBlock41" TextWrapping="Wrap" Text="Mk TMT" Height="47" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="24,-1,20,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fSC2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="10">
+                <TextBlock x:Name="textBlock42" TextWrapping="Wrap" Text="НАСОС ФЛЮГИР." Height="47" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fHYD2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="10">
+                <TextBlock x:Name="textBlock43" TextWrapping="Wrap" Text="ГИДРАВЛ." Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="3" Height="141" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="5" Grid.Column="3" Margin="1,0,1,0"/>
+        </Grid>
+        <Grid HorizontalAlignment="Left" Height="541" Margin="10,283,0,0" VerticalAlignment="Top" Width="1134">
+            <Grid.DataContext>
+                <viewModel:OverheadPanelIndicatorsViewModel/>
+            </Grid.DataContext>
+            <Grid HorizontalAlignment="Left" Height="47" Margin="0,32,0,0" VerticalAlignment="Top" Width="870">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding ipsPVD1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ПВД I" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsPVD2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ПВД II" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsPSNLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                    <TextBlock TextWrapping="Wrap" Text="ПСН" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsFOUNTLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                    <TextBlock TextWrapping="Wrap" Text="ФОНТАНЧИК" Height="22" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsSTATINDLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" Text="УКАЗАТЕЛЬ СТАТ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsROTINDLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" Text="УКАЗАТЕЛЬ ВРАЩ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsPROP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                    <TextBlock TextWrapping="Wrap" Text="ВОЗД. ВИНТ I" Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsPROP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="7">
+                    <TextBlock TextWrapping="Wrap" Text="ВОЗД. ВИНТ II" Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsICESEPLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" Text="СЕПАР. ЛЬДА ЛЕВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ipsICESEPRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                    <TextBlock TextWrapping="Wrap" Text="СЕПАР. ЛЬДА ПРАВ" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" Margin="1,114,0,0" VerticalAlignment="Top" Width="1131">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding lightFIRELight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ОГОНЬ" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightANOLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="АНО" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightHL1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                    <TextBlock TextWrapping="Wrap" Text="ФАРЫ I" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightHL2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                    <TextBlock TextWrapping="Wrap" Text="ФАРЫ II" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightTAXWAY1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" Text="РУЛЕЖНАЯ I" Height="47" Width="77" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,-1,3,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightTAXWAY2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" Text="РУЛЕЖНАЯ II" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightLAND1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                    <TextBlock TextWrapping="Wrap" Text="ПОСАДОЧ. I" Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightLAND2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="7">
+                    <TextBlock TextWrapping="Wrap" Text="ПОСАДОЧ. II" Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightPASCAB1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" Text="ПАС. КАБ 1/3" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightPASCAB2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                    <TextBlock TextWrapping="Wrap" Text="ПАС. КАБ 2/3" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightLGHTPANELLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="10">
+                    <TextBlock TextWrapping="Wrap" Text="СВЕТ. ТАБЛО" Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightPILOTCABLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="11">
+                    <TextBlock TextWrapping="Wrap" Text="ПИЛОТ. КАБИНА" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding lightINDPANELLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="12">
+                    <TextBlock TextWrapping="Wrap" Text="ПРИБОР. ДОСКА" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" Margin="1,200,0,0" VerticalAlignment="Top" Width="957">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding rnSPU1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="СПУ I" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnSPU2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="СПУ II" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnUKV1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                    <TextBlock TextWrapping="Wrap" Text="УКВ I" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnUKV2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                    <TextBlock TextWrapping="Wrap" Text="УКВ II" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnKVLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" Text="КВ" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnGIKLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" Text="ГИК" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnRVLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                    <TextBlock TextWrapping="Wrap" Text="РВ" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnSP50Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="7">
+                    <TextBlock TextWrapping="Wrap" Text="СП 50" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnARK1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" Text="АРК I" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnARK2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                    <TextBlock TextWrapping="Wrap" Text="АРК II" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding rnSROLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="10">
+                    <TextBlock TextWrapping="Wrap" Text="СРО" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" Margin="0,316,0,0" VerticalAlignment="Top" Width="957">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding engFUELPUMPL1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="I" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engFUELPUMPL2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="II" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engFUELPUMPR1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                    <TextBlock TextWrapping="Wrap" Text="I" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engFUELPUMPR2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                    <TextBlock TextWrapping="Wrap" Text="II" Height="22" Width="66" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engFUELPUMPINGLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" Text="ПЕРЕКАЧ. ТОПЛИВ." Height="47" Width="77" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,-1,3,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engPUMPFLUGLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" Text="НАСОС ФЛЮГ. ЛЕВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engPUMPFLUGRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                    <TextBlock TextWrapping="Wrap" Text="НАСОС ФЛЮГ. ПР." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engISOLVAVLELLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="7">
+                    <TextBlock TextWrapping="Wrap" Text="ИЗОЛ. КЛАП. ЛЕВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engISOLVAVLERLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" Text="ИЗОЛ. КЛАП. ПРАВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engSTARTLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАПУСК ЛЕВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding engSTARTRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="10">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАПУСК ПРАВ." Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" Margin="2,400,0,0" VerticalAlignment="Top" Width="1044">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding bkINDLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ТАБЛО" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkSIGNALLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="СИГНАЛИЗ." Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkGEARSLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                    <TextBlock TextWrapping="Wrap" Text="ШАССИ" Height="22" Width="62" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkFLAPSLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАКРЫЛКИ" Height="22" Width="76" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="4,10,5,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkTRIMLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" Text="ТРИММЕРЫ" Height="22" Width="83" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="1,10,1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkLIGHTLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" Text="ОСВЕЩЕНИЕ" Height="24" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,11" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkCEBOLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                    <TextBlock TextWrapping="Wrap" Text="ЦЭБО ЛЕВ." Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkCEBORLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="7">
+                    <TextBlock TextWrapping="Wrap" Text="ЦЭБО ПРАВ." Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkFIRESIGLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" Text="СИГНАЛИЗ. ПОЖАРА" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkIPSCORPLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                    <TextBlock TextWrapping="Wrap" Text="ПОС ПЛАНЕРА" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkICESEPLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="10">
+                    <TextBlock TextWrapping="Wrap" Text="СЕПАР. ЛЬДА ЛЕВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding bkICESEPRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="11">
+                    <TextBlock TextWrapping="Wrap" Text="СЕПАР. ЛЬДА ПРАВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" Margin="2,484,0,0" VerticalAlignment="Top" Width="957">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding pwsGENLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ГЕНЕРАТОР Л" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsGENRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ГЕНЕРАТОР П" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsBATT1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                    <TextBlock TextWrapping="Wrap" Text="АККУМ. I" Height="47" Width="59" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="17,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsBATT2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                    <TextBlock TextWrapping="Wrap" Text="АККУМ. II" Height="47" Width="63" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsSWITCHGENLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                    <TextBlock TextWrapping="Wrap" Text="ГЕН. Л." Height="27" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,9" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsSWITCHBATLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                    <TextBlock TextWrapping="Wrap" Text="АККУМ." Height="26" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,9,-1,10" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsSWITCHGENRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                    <TextBlock TextWrapping="Wrap" Text="ГЕН. П" Height="24" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,9,9,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsTR115RLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="7">
+                    <TextBlock TextWrapping="Wrap" Text="115В ЗАПАС." Height="47" Width="61" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,-1,10,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsTR115MLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                    <TextBlock TextWrapping="Wrap" Text="115В ОСНОВ." Height="47" Width="67" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsTR361Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                    <TextBlock TextWrapping="Wrap" Text="36В I" Height="47" Width="34" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="27,-1,24,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding pwsTR362Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="11">
+                    <TextBlock TextWrapping="Wrap" Text="36В II" Height="47" Width="42" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="23,-1,20,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" Margin="870,32,0,0" VerticalAlignment="Top" Width="261">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding seSAILight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="РЕЗЕРВ. АВИАГОР" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding seFANLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ВЕНТИЛЯТОР" Height="20" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,13,-1,12" FontFamily="GOST 2930-62 PART 1" FontSize="19"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding seSPPLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                    <TextBlock TextWrapping="Wrap" Text="СПП" Height="21" Width="59" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,10,12,14" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" Margin="957,316,0,0" VerticalAlignment="Top" Width="174">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding apSERVOLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="СЕРВО" Height="21" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,14" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding apINDLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ПРИБОРЫ" Height="20" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,11,-1,14" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="79" VerticalAlignment="Top" Width="870">
+                <TextBlock x:Name="textBlock19" Foreground="White" TextWrapping="Wrap" Text="ПРОТИВООБЛЕДЕНЕНИЕ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="79" Margin="0,84,0,0" VerticalAlignment="Top" Width="1132">
+                <TextBlock x:Name="textBlock23" Foreground="White" TextWrapping="Wrap" Text="ОСВЕЩЕНИЕ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="79" Margin="0,168,0,0" VerticalAlignment="Top" Width="958">
+                <TextBlock x:Name="textBlock25" Foreground="White" TextWrapping="Wrap" Text="РАДИОНАВИГАЦИЯ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="111" Margin="0,252,0,0" VerticalAlignment="Top" Width="956">
+                <TextBlock x:Name="textBlock31" Foreground="White" TextWrapping="Wrap" Text="ДВИГАТЕЛИ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="79" Margin="1,368,0,0" VerticalAlignment="Top" Width="1045">
+                <TextBlock x:Name="textBlock44" Foreground="White" TextWrapping="Wrap" Text="АВТОМАТЫ ЗАЩИТЫ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="79" Margin="2,452,0,0" VerticalAlignment="Top" Width="957">
+                <TextBlock x:Name="textBlock45" Foreground="White" TextWrapping="Wrap" Text="ИСТОЧНИКИ ПИТАНИЯ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <TextBlock x:Name="textBlock46" Foreground="White" TextWrapping="Wrap" Text="ТОПЛИВ. НАСОСЫ ЛЕВ." FontFamily="GOST 2930-62 PART 1" FontSize="19" Margin="13,290,963,230" Height="21" Width="158" TextAlignment="Center"/>
+            <TextBlock x:Name="textBlock46_Copy" Foreground="White" TextWrapping="Wrap" Text="ТОПЛИВ. НАСОСЫ ПРАВ." FontFamily="GOST 2930-62 PART 1" FontSize="19" Margin="176,290,782,230" Height="21" Width="176" TextAlignment="Center"/>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="79" Margin="869,0,0,0" VerticalAlignment="Top" Width="263">
+                <TextBlock x:Name="textBlock47" Foreground="White" TextWrapping="Wrap" Text="СПЕЦОБОРУДОВАНИЕ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="111" Margin="956,252,0,0" VerticalAlignment="Top" Width="176">
+                <TextBlock x:Name="textBlock48" Foreground="White" TextWrapping="Wrap" Text="АВТОПИЛОТ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+        </Grid>
+    </Grid>
+</UserControl>

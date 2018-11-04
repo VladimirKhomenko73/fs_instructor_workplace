@@ -1,0 +1,231 @@
+﻿<UserControl x:Class="TL410InstructorsWorkplace.View.ConditionPanel"
+               xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TL410InstructorsWorkplace.View"
+             xmlns:viewModel="clr-namespace:TL410InstructorsWorkplace.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="973" d:DesignWidth="1789">
+    <UserControl.DataContext>
+        <viewModel:ConditionPanelViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="ConditionButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border BorderThickness="2" BorderBrush="White">
+                            <Grid Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="Black">
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="65,98,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock20" Foreground="White" TextWrapping="Wrap" Text="КУРС ВЕТРА" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="windHeadingSlider" Margin="0,24,0,0" Value="{Binding windHeadingInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="360" SmallChange="1" IsSnapToTickEnabled="True" Minimum="1" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="windHeadingTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding windHeadingInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding windHeadingOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding windHeadingParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="65,195,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock1" Foreground="White" TextWrapping="Wrap" Text="СКОРОСТЬ ВЕТРА" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="windSpeedSlider" Margin="0,24,0,0" Value="{Binding windSpeedInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="25" SmallChange="1" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="windSpeedTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding windSpeedInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding windSpeedOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding windSpeedParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="65,292,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock2" Foreground="White" TextWrapping="Wrap" Text="ИЗМЕНЕНИЕ ДАВЛЕНИЯ" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="180" Margin="210,0"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="pressureChangeSlider" Margin="0,24,0,0" Value="{Binding pressureChangeInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="20" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-20" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="pressureChangeTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding pressureChangeInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding pressureChangeOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding pressureChangeParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="65,389,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock3" Foreground="White" TextWrapping="Wrap" Text="ИЗМЕНЕНИЕ ТЕМПЕРАТУРЫ" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="230" Margin="182,0,188,0"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="temperatureChangeSlider" Margin="0,24,0,0" Value="{Binding temperatureChangeInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="25" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-55" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="temperatureChangeTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding temperatureChangeInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding temperatureChangeOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding temperatureChangeParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="65,481,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock4" Foreground="White" TextWrapping="Wrap" Text="ВИДИМОСТЬ ПОСАДКА" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="landingRunwayVisibilitySlider" Margin="0,24,0,0" Value="{Binding landingRunwayVisibilityInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="3000" SmallChange="1" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="landingRunwayVisibilityTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding landingRunwayVisibilityInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding landingRunwayVisibilityOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding landingRunwayVisibilityParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="65,578,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock5" Foreground="White" TextWrapping="Wrap" Text="ВИДИМОСТЬ ВЗЛЁТ" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="takeoffRunwayVisibilitySlider" Margin="0,24,0,0" Value="{Binding takeoffRunwayVisibilityInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="360" SmallChange="1000" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock4" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding takeoffRunwayVisibilityInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding takeoffRunwayVisibilityOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding takeoffRunwayVisibilityParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="65,675,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock6" Foreground="White" TextWrapping="Wrap" Text="ВЫСОТА ВПП" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="aerodromeLevelSlider" Margin="0,24,0,0" Value="{Binding aerodromeLevelInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="3000" SmallChange="1" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock5" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding aerodromeLevelInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding aerodromeLevelOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding aerodromeLevelParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,98,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock7" Foreground="White" TextWrapping="Wrap" Text="КУРС ВПП I" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="runwayHeading1Slider6" Margin="0,24,0,0" Value="{Binding runwayHeading1Input}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="360" SmallChange="1" IsSnapToTickEnabled="True" Minimum="1" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock6" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding runwayHeading1Input}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding runwayHeading1Output}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding runwayHeading1Parameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,195,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock8" Foreground="White" TextWrapping="Wrap" Text="КУРС ВПП II" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="Slider7" Margin="0,24,0,0" Value="{Binding runwayHeading2Input}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="360" SmallChange="1" IsSnapToTickEnabled="True" Minimum="1" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock7" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding runwayHeading2Input}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding runwayHeading2Output}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding runwayHeading2Parameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,292,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock9" Foreground="White" TextWrapping="Wrap" Text="НИЖНИЙ УРОВЕНЬ ОБЛАКОВ" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="251" Margin="173,0,176,0"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="Slider8" Margin="0,24,0,0" Value="{Binding minimumCloudLevelInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="3000" SmallChange="1" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock8" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding minimumCloudLevelInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding minimumCloudLevelOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding minimumCloudLevelParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,389,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock10" Foreground="White" TextWrapping="Wrap" Text="ВЕРХНИЙ УРОВЕНЬ ОБЛАКОВ" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="242" Margin="176,0,182,0"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="maximumCloudLevelSlider9" Margin="0,24,0,0" Value="{Binding maximumCloudLevelInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="3000" SmallChange="1" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock9" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding maximumCloudLevelInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding maximumCloudLevelOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding maximumCloudLevelParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,481,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock11" Foreground="White" TextWrapping="Wrap" Text="ЛЕВЫЙ БАК" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="Slider10" Margin="0,24,0,0" Value="{Binding fuelLInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="500" SmallChange="1" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock10" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding fuelLInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding fuelLOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding fuelLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,578,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock12" Foreground="White" TextWrapping="Wrap" Text="ПРАВЫЙ БАК" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="Slider11" Margin="0,24,0,0" Value="{Binding fuelRInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="500" SmallChange="1" IsSnapToTickEnabled="True" Minimum="1" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock11" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding fuelRInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding fuelROutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding fuelRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,675,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock13" Foreground="White" TextWrapping="Wrap" Text="ВЕС ГРУЗА" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="Slider1" Margin="0,24,0,0" Value="{Binding cargoWeightInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="1850" SmallChange="1" IsSnapToTickEnabled="True" Minimum="0" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock1" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding cargoWeightInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding cargoWeightOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding cargoWeightParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <StackPanel HorizontalAlignment="Left" Height="92" Margin="691,772,0,0" VerticalAlignment="Top" Width="600">
+            <TextBlock x:Name="textBlock14" Foreground="White" TextWrapping="Wrap" Text="ЦЕНТРОВКА" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="164"/>
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="600" Height="64" Orientation="Horizontal">
+                <Slider x:Name="Slider2" Margin="0,24,0,0" Value="{Binding cogInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="31" SmallChange="1" IsSnapToTickEnabled="True" Minimum="17" IsMoveToPointEnabled="True"/>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock x:Name="TextBlock2" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding cogInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                    <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding cogOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                </Border>
+                <Button Margin="23,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding cogParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+            </StackPanel>
+        </StackPanel>
+        <Button x:Name="nightTimeButton" Foreground="White" BorderThickness="3" Background="{Binding nightTimeOutput}" Content="НОЧЬ" Command="{Binding sendCommand}"  CommandParameter="{Binding nightTimeParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" Margin="93,841,0,0"/>
+        <Button x:Name="externalPowerSourceButton" Foreground="White" BorderThickness="3" Background="{Binding externalPowerSourceOutput}" Content="ВИП" Command="{Binding sendCommand}"  CommandParameter="{Binding externalPowerSourceParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" Margin="252,841,0,0"/>
+        <Button x:Name="chockButton" Foreground="White" BorderThickness="3" Background="{Binding chockOutput}" Content="КОЛОДКИ" Command="{Binding sendCommand}"  CommandParameter="{Binding chockParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" Margin="423,841,0,0"/>
+        
+
+    </Grid>
+</UserControl>

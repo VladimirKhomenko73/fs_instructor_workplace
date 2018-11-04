@@ -1,0 +1,206 @@
+﻿<UserControl x:Class="TL410InstructorsWorkplace.View.FailurePanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TL410InstructorsWorkplace.View"
+             xmlns:viewModel="clr-namespace:TL410InstructorsWorkplace.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="973" d:DesignWidth="1789">
+    <UserControl.DataContext>
+        <viewModel:FailurePanelViewModel/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style x:Key="FailureButtonStyle" TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="border" BorderThickness="2" BorderBrush="White">
+                            <Grid x:Name="background" Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center"
+                        VerticalAlignment="Center"/>
+                            </Grid>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter TargetName="background" Property="Background" Value="Lightblue"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid Background="Black">
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="379" Margin="56,72,0,0">
+            <StackPanel>
+                <TextBlock x:Name="textBlock19" Foreground="White" TextWrapping="Wrap" Text="ЭЛЕКТРИЧЕСКАЯ СЕТЬ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                <StackPanel HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="375" Orientation="Horizontal">
+                    <Button x:Name="busDeadShotButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding busDeadShotOutput}" Content="Шина" Command="{Binding sendCommand}"  CommandParameter="{Binding busDeadShotParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Короткое замыкание главной шины"/>
+                    <Button x:Name="genFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding genFailureOutput}" Content="Генераторы" Command="{Binding sendCommand}"  CommandParameter="{Binding genFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ генераторов"/>
+                    <Button x:Name="transducerFailure1Button" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding transducerFailure1Output}" Content="Преобраз I" Command="{Binding sendCommand}"  CommandParameter="{Binding transducerFailure1Parameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ преобразователя I"/>
+                    <Button x:Name="transducerFailure3Button" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding transducerFailure3Output}" Content="Преобраз III" Command="{Binding sendCommand}"  CommandParameter="{Binding transducerFailure3Parameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ преобразователя III"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="88" VerticalAlignment="Top" Width="849" Margin="56,259,0,0">
+            <StackPanel>
+                <TextBlock x:Name="textBlock20" Foreground="White" TextWrapping="Wrap" Text="ПЛАНЕР" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                <StackPanel HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="847" Orientation="Horizontal">
+                    <Button x:Name="icingButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding icingOutput}" Content="Обледенение" Command="{Binding sendCommand}"  CommandParameter="{Binding icingParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Обледенение"/>
+                    <Button x:Name="hydraulicFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding hydraulicFailureOutput}" Content="Гидравлика" Command="{Binding sendCommand}"  CommandParameter="{Binding hydraulicFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ гидравлики"/>
+                    <Button x:Name="cycFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding cycFailureOutput}" Content="Цик. устр." Command="{Binding sendCommand}"  CommandParameter="{Binding cycFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ циклического устройства"/>
+                    <Button x:Name="generalPressureFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding generalPressureFailureOutput}" Content="Общее давл." Command="{Binding sendCommand}"  CommandParameter="{Binding generalPressureFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ общего давления"/>
+                    <Button x:Name="gearsFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding gearsFailureOutput}" Content="Шасси" Command="{Binding sendCommand}"  CommandParameter="{Binding gearsFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ шасси"/>
+                    <Button x:Name="flapsFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding flapsFailureOutput}" Content="Закрылки" Command="{Binding sendCommand}"  CommandParameter="{Binding flapsFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ закрылков"/>
+                    <Button x:Name="breakLFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding breakLFailureOutput}" Content="Тормоз Л" Command="{Binding sendCommand}"  CommandParameter="{Binding breakLFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ левого тормоза"/>
+                    <Button x:Name="breakRFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding breakRFailureOutput}" Content="Тормоз П" Command="{Binding sendCommand}"  CommandParameter="{Binding breakRFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ правого тормоза"/>
+                    <Button x:Name="staticPressureFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding staticPressureFailureOutput}" Content="Стат. давл." Command="{Binding sendCommand}"  CommandParameter="{Binding staticPressureFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ статического давления"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="1038" Margin="56,447,0,0">
+            <StackPanel>
+                <TextBlock x:Name="textBlock1" Foreground="White" TextWrapping="Wrap" Text="ДВИГАТЕЛЬ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                <StackPanel HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="1034" Orientation="Horizontal">
+                    <Button x:Name="fireLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding fireLOutput}" Content="Пожар Л" Command="{Binding sendCommand}"  CommandParameter="{Binding fireLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Пожар левого двигателя"/>
+                    <Button x:Name="fireRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding fireROutput}" Content="Пожар П" Command="{Binding sendCommand}"  CommandParameter="{Binding fireRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Пожар правого двигателя"/>
+                    <Button x:Name="engStopLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding engStopLOutput}" Content="Ост. Д. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding engStopLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Остановка левого двигателя"/>
+                    <Button x:Name="engStopRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding engStopROutput}" Content="Ост. Д. П" Command="{Binding sendCommand}"  CommandParameter="{Binding engStopRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Остановка правого двигателя"/>
+                    <Button x:Name="engHoldupLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding engHoldupLOutput}" Content="Зав. обр. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding engHoldupLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Зависание оборотов левого двигателя"/>
+                    <Button x:Name="engHoldupRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding engHoldupROutput}" Content="Зав. обр. П" Command="{Binding sendCommand}"  CommandParameter="{Binding engHoldupRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Зависание оборотов правого двигателя"/>
+                    <Button x:Name="tmtLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding tmtLOutput}" Content="ТМТ Л" Command="{Binding sendCommand}"  CommandParameter="{Binding tmtLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Превышение ТМТ левого двигателя"/>
+                    <Button x:Name="tmtRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding tmtROutput}" Content="ТМТ П" Command="{Binding sendCommand}"  CommandParameter="{Binding tmtRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Превышение ТМТ правого двигателя"/>
+                    <Button x:Name="oilPressureFailureLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding oilPressureFailureLOutput}" Content="Дав М. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding oilPressureFailureLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ давлениея масла левого двигателя"/>
+                    <Button x:Name="oilPressureFailureRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding oilPressureFailureROutput}" Content="Дав М. П" Command="{Binding sendCommand}"  CommandParameter="{Binding oilPressureFailureRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ давлениея масла правого двигателя"/>
+                    <Button x:Name="fuelFlowLFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding fuelFlowLFailureOutput}" Content="Расход. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding fuelFlowLFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ расхода топлива"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="65" VerticalAlignment="Top" Width="1034" Orientation="Horizontal">
+                    <Button x:Name="oilTemaperatureLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding oilTemaperatureLOutput}" Content="Темп. М. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding oilTemaperatureLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Превышение температуры масла левого двигателя"/>
+                    <Button x:Name="oilTemaperatureRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding oilTemaperatureROutput}" Content="Темп. М. П" Command="{Binding sendCommand}"  CommandParameter="{Binding oilTemaperatureRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Превышение температуры масла правого двигателя"/>
+                    <Button x:Name="propOverspeedLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding propOverspeedLOutput}" Content="Раск. В. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding propOverspeedLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Раскрутка левого винта"/>
+                    <Button x:Name="propOverspeedRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding propOverspeedROutput}" Content="Раск. В. П" Command="{Binding sendCommand}"  CommandParameter="{Binding propOverspeedRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Раскрутка правого винта"/>
+                    <Button x:Name="featheringMotorFailureLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding featheringMotorFailureLOutput}" Content="Флюгир. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding featheringMotorFailureLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ левого флюгерного насоса"/>
+                    <Button x:Name="featheringMotorFailureRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding featheringMotorFailureROutput}" Content="Флюгир. П" Command="{Binding sendCommand}"  CommandParameter="{Binding featheringMotorFailureRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ правого флюгерного насоса"/>
+                    <Button x:Name="fuelPressureFailureLButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding fuelPressureFailureLOutput}" Content="Давл. Т. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding fuelPressureFailureLParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ давления топлива левого двигателя"/>
+                    <Button x:Name="fuelPressureFailureRButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding fuelPressureFailureROutput}" Content="Давл. Т. П" Command="{Binding sendCommand}"  CommandParameter="{Binding fuelPressureFailureRParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ давления топлива правого двигателя"/>
+                    <Button x:Name="ceboLFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding ceboLFailureOutput}" Content="ЦЭБО Л" Command="{Binding sendCommand}"  CommandParameter="{Binding ceboLFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ ЦЭБО (центральный электронный блок ограничений) левого двигателя"/>
+                    <Button x:Name="ceboRFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding ceboRFailureOutput}" Content="ЦЭБО П" Command="{Binding sendCommand}"  CommandParameter="{Binding ceboRFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ ЦЭБО (центральный электронный блок ограничений) правого двигателя"/>
+                    <Button x:Name="fuelFlowRFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding fuelFlowRFailureOutput}" Content="Расход. П" Command="{Binding sendCommand}"  CommandParameter="{Binding fuelFlowRFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ расхода топлива"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="1038" Margin="56,702,0,0">
+            <StackPanel>
+                <TextBlock x:Name="textBlock2" Foreground="White" TextWrapping="Wrap" Text="ПРИБОРЫ" HorizontalAlignment="Center" VerticalAlignment="Top" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                <StackPanel HorizontalAlignment="Left" Height="63" VerticalAlignment="Top" Width="1034" Orientation="Horizontal">
+                    <Button x:Name="reserveAttitudeIndicatorFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding reserveAttitudeIndicatorFailureOutput}" Content="Зап. АГД" Command="{Binding sendCommand}"  CommandParameter="{Binding reserveAttitudeIndicatorFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ запасного авиагоризонта"/>
+                    <Button x:Name="UKV1FailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding UKV1FailureOutput}" Content="УКВ I" Command="{Binding sendCommand}"  CommandParameter="{Binding UKV1FailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ УКВ I"/>
+                    <Button x:Name="GMKFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding GMKFailureOutput}" Content="ГМК" Command="{Binding sendCommand}"  CommandParameter="{Binding GMKFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ ГМК"/>
+                    <Button x:Name="radioAltimeterFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding radioAltimeterFailureOutput}" Content="Радиовысот." Command="{Binding sendCommand}"  CommandParameter="{Binding radioAltimeterFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ радиовысотомера"/>
+                    <Button x:Name="RMIFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding RMIFailureOutput}" Content="Радиокомпас" Command="{Binding sendCommand}"  CommandParameter="{Binding RMIFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ радиокомпаса"/>
+                    <Button x:Name="radioFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding radioFailureOutput}" Content="Радиосвязь" Command="{Binding sendCommand}"  CommandParameter="{Binding radioFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ радиосвязи"/>
+                    <Button x:Name="ilsFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding ilsFailureOutput}" Content="ИЛС" Command="{Binding sendCommand}"  CommandParameter="{Binding ilsFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ ИЛС"/>
+                    <Button x:Name="markerBeaconLightFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding markerBeaconLightFailureOutput}" Content="Свет. МРП" Command="{Binding sendCommand}"  CommandParameter="{Binding markerBeaconLightFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ световой сигнализации МРП"/>
+                    <Button x:Name="markerBeaconSoundFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding markerBeaconSoundFailureOutput}" Content="Звук. МРП" Command="{Binding sendCommand}"  CommandParameter="{Binding markerBeaconSoundFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ звуковой сигнализации МРП"/>
+                    <Button x:Name="rpmIndicatorLFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding rpmIndicatorLFailureOutput}" Content="Укз. Mk Л" Command="{Binding sendCommand}"  CommandParameter="{Binding rpmIndicatorLFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ левого указателя крутящего момента"/>
+                    <Button x:Name="rpmIndicatorRFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding rpmIndicatorRFailureOutput}" Content="Укз. Mk П" Command="{Binding sendCommand}"  CommandParameter="{Binding rpmIndicatorRFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ правого указателя крутящего момента"/>
+                </StackPanel>
+                <StackPanel HorizontalAlignment="Left" Height="62" VerticalAlignment="Top" Width="1034" Orientation="Horizontal">
+                    <Button x:Name="mkIndicatorLFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding mkIndicatorLFailureOutput}" Content="Укз. обр. Л" Command="{Binding sendCommand}"  CommandParameter="{Binding mkIndicatorLFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ левого указателя оборотов воздушного винта"/>
+                    <Button x:Name="mkIndicatorRFailureButton" Style="{StaticResource FailureButtonStyle}" Foreground="White" BorderThickness="3" Background="{Binding mkIndicatorRFailureOutput}" Content="Укз. обр. П" Command="{Binding sendCommand}"  CommandParameter="{Binding mkIndicatorRFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontSize="24" FontFamily="GOST 2930-62 PART 1" ToolTip="Отказ правого указателя оборотов воздушного винта"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="109" Margin="1118,72,0,0" Width="608">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock x:Name="textBlockA" Foreground="White" TextWrapping="Wrap" Text="ОТКЛОНЕНИЕ ЭЛЕРОНОВ" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="197" Margin="204,0,205,0"/>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="609" Height="64" Orientation="Horizontal">
+                    <Slider x:Name="aileronTrimTabFailureSlider" Margin="5,24,0,0" Value="{Binding aileronTrimTabFailureInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="10" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-10" IsMoveToPointEnabled="True"/>
+                    <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                        <TextBlock x:Name="aileronTrimTabFailureTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding aileronTrimTabFailureInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                    </Border>
+                    <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding aileronTrimTabFailureOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                    </Border>
+                    <Button Margin="14,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding aileronTrimTabFailureParameter}" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" HorizontalAlignment="Left" VerticalAlignment="Top" BorderThickness="2" Height="109" Margin="1118,259,0,0">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock x:Name="textBlockA1" Foreground="White" TextWrapping="Wrap" Text="ОТКЛОНЕНИЕ РУЛЯ НАПРАВЛЕНИЯ" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="313" Margin="155,0,138,0"/>
+                <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="606" Height="64" Orientation="Horizontal">
+                    <Slider x:Name="rudderTrimTabFailureSlider" Margin="5,24,0,0" Value="{Binding rudderTrimTabFailureInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="10" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-10" IsMoveToPointEnabled="True"/>
+                    <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                        <TextBlock x:Name="rudderTrimTabFailureTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding rudderTrimTabFailureInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                    </Border>
+                    <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding rudderTrimTabFailureOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                    </Border>
+                    <Button Margin="14,0,0,0" Content="Отправить" Command="{Binding sendSliderCommand}"  CommandParameter="{Binding rudderTrimTabFailureParameter}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="193" Margin="1118,447,0,0">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock x:Name="textBlockA2" Foreground="White" TextWrapping="Wrap" Text="УХОД ЛЕВОГО АВИАГОРИЗОНТА" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="301" Margin="162,0,143,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Height="155">
+                        <TextBlock Margin="10,0,0,0" Foreground="White" TextWrapping="Wrap" Text="ТАНГАЖ" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="16" Width="48"/>
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="489" Height="69" Orientation="Horizontal">
+                            <Slider x:Name="attitudeIndicatorPitchDriftLSlider" Margin="5,24,0,0" Value="{Binding attitudeIndicatorPitchDriftLInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="10" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-10" IsMoveToPointEnabled="True"/>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock x:Name="attitudeIndicatorPitchDriftLTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorPitchDriftLInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorPitchDriftLOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Margin="10,0,0,0" Foreground="White" TextWrapping="Wrap" Text="КРЕН" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="16" Width="31" RenderTransformOrigin="0.5,0.5"/>
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="491" Height="69" Orientation="Horizontal">
+                            <Slider x:Name="attitudeIndicatorRollDriftLSlider" Margin="5,24,0,0" Value="{Binding attitudeIndicatorRollDriftLInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="10" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-10" IsMoveToPointEnabled="True"/>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock x:Name="attitudeIndicatorRollDriftLTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorRollDriftLInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorRollDriftLOutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Margin="10,65,0,0" Content="Отправить" Command="{Binding sendAttitudeIndicatorLCommand}"  CommandParameter="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        <Border BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" VerticalAlignment="Top" Height="193" Margin="1118,702,0,0">
+            <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top">
+                <TextBlock Foreground="White" TextWrapping="Wrap" Text="УХОД ПРАВОГО АВИАГОРИЗОНТА" HorizontalAlignment="Center" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="20" Width="301" Margin="162,0,143,0"/>
+                <StackPanel Orientation="Horizontal">
+                    <StackPanel Height="155">
+                        <TextBlock Margin="10,0,0,0" Foreground="White" TextWrapping="Wrap" Text="ТАНГАЖ" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="16" Width="48"/>
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="489" Height="69" Orientation="Horizontal">
+                            <Slider x:Name="attitudeIndicatorPitchDriftRSlider" Margin="5,24,0,0" Value="{Binding attitudeIndicatorPitchDriftRInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="10" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-10" IsMoveToPointEnabled="True"/>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock x:Name="attitudeIndicatorPitchDriftRTextBlock" HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorPitchDriftRInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorPitchDriftROutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                        </StackPanel>
+                        <TextBlock Margin="10,0,0,0" Foreground="White" TextWrapping="Wrap" Text="КРЕН" HorizontalAlignment="Left" VerticalAlignment="Top" TextAlignment="Center" FontFamily="GOST 2930-62 PART 1" FontSize="16" Width="31" RenderTransformOrigin="0.5,0.5"/>
+                        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top"  Width="491" Height="69" Orientation="Horizontal">
+                            <Slider x:Name="attitudeIndicatorRollDriftRSlider" Margin="5,24,0,0" Value="{Binding attitudeIndicatorRollDriftRInput}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="292" Maximum="10" SmallChange="1" IsSnapToTickEnabled="True" Minimum="-10" IsMoveToPointEnabled="True"/>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorRollDriftRInput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                            <Border Margin="22,17,0,0" BorderBrush="White" BorderThickness="1" HorizontalAlignment="Left" Height="32" VerticalAlignment="Top" Width="73">
+                                <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding attitudeIndicatorRollDriftROutput}" VerticalAlignment="Center" Width="62" Height="32" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="6,-1,3,-1" />
+                            </Border>
+                        </StackPanel>
+                    </StackPanel>
+                    <Button Margin="10,65,0,0" Content="Отправить" Command="{Binding sendAttitudeIndicatorRCommand}"  CommandParameter="" HorizontalAlignment="Left" VerticalAlignment="Top" Width="94" Height="64" FontFamily="GOST 2930-62 PART 1" FontSize="22" Foreground="White" Background="Black" BorderBrush="White"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+    </Grid>
+</UserControl>

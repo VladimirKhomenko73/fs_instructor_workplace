@@ -1,0 +1,67 @@
+﻿<Window x:Class="TL410InstructorsWorkplace.DebugWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TL410InstructorsWorkplace"
+        mc:Ignorable="d"
+        Title="DebugWindow" Height="431.233" Width="963.746">
+    <Grid>
+        <Slider x:Name="Pitch" HorizontalAlignment="Left" Margin="10,26,0,0" VerticalAlignment="Top" Width="140" Height="21" Maximum="90" Minimum="-90" ValueChanged="Pitch_ValueChanged"/>
+        <Label x:Name="label" Content="Pitch" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="Roll" HorizontalAlignment="Left" Margin="10,78,0,0" VerticalAlignment="Top" Width="140" Height="21" Maximum="90" Minimum="-90" ValueChanged="Roll_ValueChanged"/>
+        <Label x:Name="labe2" Content="Roll" HorizontalAlignment="Left" Margin="10,52,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="Speed" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Width="140" Height="21" Maximum="2500" ValueChanged="Roll_Copy_ValueChanged"/>
+        <Label x:Name="labe2_Copy" Content="Speed" HorizontalAlignment="Left" Margin="10,112,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1" Content="{Binding ElementName=Speed, Path=Value}" HorizontalAlignment="Left" Margin="173,133,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label x:Name="label1_Copy" Content="{Binding Value, ElementName=Roll}" HorizontalAlignment="Left" Margin="173,78,0,0" VerticalAlignment="Top" Width="79"/>
+        <Label x:Name="label1_Copy1" Content="{Binding Value, ElementName=Pitch}" HorizontalAlignment="Left" Margin="173,21,0,0" VerticalAlignment="Top" Width="79"/>
+        <Slider x:Name="VSpeed" HorizontalAlignment="Left" Margin="10,198,0,0" VerticalAlignment="Top" Width="140" Height="21" Maximum="30" ValueChanged="VSpeed_ValueChanged" Minimum="-30"/>
+        <Label x:Name="labe2_Copy1" Content="VSpeed" HorizontalAlignment="Left" Margin="10,172,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label1_Copy2" Content="{Binding Value, ElementName=VSpeed}" HorizontalAlignment="Left" Margin="173,193,0,0" VerticalAlignment="Top" Width="79"/>
+        <Button x:Name="button" Content="Проверка аварий" HorizontalAlignment="Left" Margin="10,241,0,0" VerticalAlignment="Top" Width="112" Click="button_Click"/>
+        <Button x:Name="button1" Content="Проверка" HorizontalAlignment="Left" Margin="10,294,0,0" VerticalAlignment="Top" Width="112" Click="button1_Click" ClickMode="Press"/>
+        <Slider x:Name="slider" HorizontalAlignment="Left" Margin="287,26,0,0" VerticalAlignment="Top" Width="175" ValueChanged="slider_ValueChanged" Maximum="360"/>
+        <Slider x:Name="slider1" HorizontalAlignment="Left" Margin="287,69,0,0" VerticalAlignment="Top" Width="175" ValueChanged="slider1_ValueChanged" Maximum="0" Minimum="-360"/>
+        <Slider x:Name="slider2" HorizontalAlignment="Left" Margin="287,112,0,0" VerticalAlignment="Top" Width="175" ValueChanged="slider2_ValueChanged" Maximum="360"/>
+        <Label x:Name="label2" Content="{Binding Value, ElementName=slider}" HorizontalAlignment="Left" Margin="482,26,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label3" Content="{Binding Value, ElementName=slider1}" HorizontalAlignment="Left" Margin="482,69,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label4" Content="{Binding Value, ElementName=slider2}" HorizontalAlignment="Left" Margin="482,112,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5" Content="Heading" HorizontalAlignment="Left" Margin="333,10,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5_Copy" Content="Arrow" HorizontalAlignment="Left" Margin="333,44,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5_Copy1" Content="Vor" HorizontalAlignment="Left" Margin="333,87,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5_Copy2" Content="Glis Shift" HorizontalAlignment="Left" Margin="320,141,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label5_Copy3" Content="Course Shift" HorizontalAlignment="Left" Margin="320,193,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider3" HorizontalAlignment="Left" Margin="287,172,0,0" VerticalAlignment="Top" Width="175" ValueChanged="slider3_ValueChanged" Minimum="-10"/>
+        <Slider x:Name="slider4" HorizontalAlignment="Left" Margin="287,219,0,0" VerticalAlignment="Top" Width="175" ValueChanged="slider4_ValueChanged" Minimum="-10"/>
+        <Label x:Name="label6" Content="{Binding Value, ElementName=slider3}" HorizontalAlignment="Left" Margin="467,164,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label7" Content="{Binding Value, ElementName=slider4}" HorizontalAlignment="Left" Margin="467,211,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider5" HorizontalAlignment="Left" Margin="297,271,0,0" VerticalAlignment="Top" Width="165" Maximum="5000" ValueChanged="slider5_ValueChanged"/>
+        <Label x:Name="label8" Content="{Binding Value, ElementName=slider5}" HorizontalAlignment="Left" Margin="483,271,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label9" Content="Att" HorizontalAlignment="Left" Margin="323,245,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider6" HorizontalAlignment="Left" Margin="297,339,0,0" VerticalAlignment="Top" Width="165" Minimum="-0.31" Maximum="0.31" TickFrequency="0.1" SmallChange="0.01" ValueChanged="slider6_ValueChanged"/>
+        <Label x:Name="label8_Copy" Content="{Binding Value, ElementName=slider6}" HorizontalAlignment="Left" Margin="483,331,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider7" HorizontalAlignment="Left" Margin="27,357,0,0" VerticalAlignment="Top" Width="185" Minimum="-180" Maximum="180" ValueChanged="slider7_ValueChanged"/>
+        <Label x:Name="label8_Copy1" Content="{Binding Value, ElementName=slider7}" HorizontalAlignment="Left" Margin="236,357,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label9_Copy" Content="Ball Slide" HorizontalAlignment="Left" Margin="320,308,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label9_Copy1" Content="Bearing" HorizontalAlignment="Left" Margin="48,326,0,0" VerticalAlignment="Top"/>
+        <Slider x:Name="slider8" HorizontalAlignment="Left" Margin="596,44,0,0" VerticalAlignment="Top" Width="134" Maximum="250" Minimum="-250" ValueChanged="slider8_ValueChanged"/>
+        <Slider x:Name="slider9" HorizontalAlignment="Left" Margin="596,112,0,0" VerticalAlignment="Top" Width="134" Maximum="250" Minimum="-250" ValueChanged="slider9_ValueChanged"/>
+        <Label x:Name="label8_Copy2" Content="{Binding Value, ElementName=slider8}" HorizontalAlignment="Left" Margin="735,36,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label8_Copy3" Content="{Binding Value, ElementName=slider9}" HorizontalAlignment="Left" Margin="735,104,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label10" Content="x" HorizontalAlignment="Left" Margin="606,21,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label11" Content="y" HorizontalAlignment="Left" Margin="606,86,0,0" VerticalAlignment="Top"/>
+        <Canvas x:Name="mapTest" MouseDown="Canvas_MouseDown_1" MouseMove="Canvas_MouseMove_1" Margin="642,141,66,11">
+            <Canvas.Background>
+                <SolidColorBrush Color="White" Opacity="0"/>
+            </Canvas.Background>
+        </Canvas>
+        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="250" Margin="642,141,0,0" VerticalAlignment="Top" Width="250"/>
+        <Slider x:Name="slider10" HorizontalAlignment="Left" Margin="774,44,0,0" VerticalAlignment="Top" Width="116" Maximum="100" Minimum="-75" ValueChanged="slider10_ValueChanged"/>
+        <Slider x:Name="slider11" HorizontalAlignment="Left" Margin="774,95,0,0" VerticalAlignment="Top" Width="116" Maximum="100" Minimum="-100" ValueChanged="slider11_ValueChanged"/>
+        <Label x:Name="label12" Content="Thrust" HorizontalAlignment="Left" Margin="774,13,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label13" Content="BladePitch" HorizontalAlignment="Left" Margin="774,69,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label14" Content="{Binding Value, ElementName=slider10}" HorizontalAlignment="Left" Margin="895,36,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label15" Content="{Binding Value, ElementName=slider11}" HorizontalAlignment="Left" Margin="895,87,0,0" VerticalAlignment="Top"/>
+    </Grid>
+</Window>

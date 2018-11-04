@@ -1,0 +1,1050 @@
+﻿<UserControl x:Class="TL410InstructorsWorkplace.View.Panel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:TL410InstructorsWorkplace.View"
+             xmlns:viewModel="clr-namespace:TL410InstructorsWorkplace.ViewModel"
+             mc:Ignorable="d" 
+             d:DesignHeight="973" d:DesignWidth="1789">
+    <UserControl.DataContext>
+        <viewModel:PanelViewModel/>
+    </UserControl.DataContext>
+    <Grid Background="Black">
+
+        <Grid x:Name="AttitudeIndicator" Margin="303,20,602,709">
+            <Grid x:Name="rotateHorizonGrid" HorizontalAlignment="Left" Height="156" VerticalAlignment="Top" Width="157" Margin="41,39,0,0" ClipToBounds="True" RenderTransformOrigin="0.502,0.502">
+                <Image x:Name="horizonImage" Source="/TL410InstructorsWorkplace;component/Resourse/horizont.png"  HorizontalAlignment="Left" Height="1302" VerticalAlignment="Top" Width="266" Margin="-54,-387,-55,-759">
+                    <Image.RenderTransform>
+                        <TranslateTransform Y="{Binding Pitch}"/>
+                    </Image.RenderTransform>
+                </Image>
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding Roll}"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid Background="Black" HorizontalAlignment="Left" Height="21" Margin="90,195,0,0" VerticalAlignment="Top" Width="58"/>
+            <Grid RenderTransformOrigin="0.135,0.213">
+                <Image x:Name="image" Source="/TL410InstructorsWorkplace;component/Resourse/adi_small_ball.png"  HorizontalAlignment="Left" VerticalAlignment="Top" Margin="114,198,0,0" Height="10" Width="10" />
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding BallSlide}"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Image x:Name="adiFrameImage" Source="/TL410InstructorsWorkplace;component/Resourse/adi_frame.png" HorizontalAlignment="Left" Height="240" VerticalAlignment="Top" Width="240"/>
+
+
+        </Grid>
+
+        <Grid x:Name="YS450" Margin="18,20,874,675">
+            <Grid x:Name="YS450Base" Margin="0,7,0,0">
+                <Image x:Name="YS450BaseImage" Source="/TL410InstructorsWorkplace;component/Resourse/YS450_base.png" HorizontalAlignment="Left" Height="252" VerticalAlignment="Top" Width="257"/>
+            </Grid>
+            <Grid x:Name="YS450Arrow" HorizontalAlignment="Left" Height="259" VerticalAlignment="Top" Width="257" RenderTransformOrigin="0.495,0.511">
+                <Image x:Name="YS450ArrowImage" Source="/TL410InstructorsWorkplace;component/Resourse/YS450_arrow.png" HorizontalAlignment="Left" Height="145" VerticalAlignment="Top" Width="15" Margin="120,34,0,0"/>
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding Speed}"/>
+                </Grid.RenderTransform>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="VR30" Height="245" Margin="558,10,986,718" Width="245">
+            <Grid x:Name="VR30Base" Height="245" Width="245">
+                <Image x:Name="VR30BaseImage" Source="/TL410InstructorsWorkplace;component/Resourse/VR-30 Panel.png" HorizontalAlignment="Left" Height="245" VerticalAlignment="Top" Width="245"/>
+            </Grid>
+            <Grid x:Name="VR30Arrow" Height="245" Width="245" RenderTransformOrigin="0.489,0.483">
+                <Image x:Name="VR30ArrowImage" Source="/TL410InstructorsWorkplace;component/Resourse/VR30Arrow.png" HorizontalAlignment="Left" Height="15" Margin="29,111,0,0" VerticalAlignment="Top" Width="135"/>
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding VSpeed}"/>
+                </Grid.RenderTransform>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="KCS55A" Height="260" Margin="285,289,1221,424" Background="Black">
+            <Grid.DataContext>
+                <viewModel:KCS55AViewModel/>
+            </Grid.DataContext>
+            <Grid x:Name="KCS55ACircle" RenderTransformOrigin="0.5,0.546">
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding headingOutput}"/>
+                </Grid.RenderTransform>
+                <Image x:Name="imageKCS55ACircle" Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/heading_ring.png" Margin="38,52,39,29" RenderTransformOrigin="0.5,0.5" >
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.469"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+                <Grid x:Name="KCS55ANavArrowLayer" RenderTransformOrigin="0.498,0.544">
+                    <Grid.RenderTransform>
+                        <RotateTransform Angle="{Binding courseArrowOutput}"/>
+                    </Grid.RenderTransform>
+                    <Grid x:Name="horizontLineLayer">
+                        <Image x:Name="imagehorizontLiner"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/gorizontal_line.png" Margin="81,132,82,108"/>
+                    </Grid>
+                    <Grid x:Name="fromIndicatorLayer" Visibility="{Binding fromIndicatorOutput}">
+                        <Image x:Name="imagefromIndicator"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/direction_arrow_up.png" Margin="127,111,127,129"/>
+                    </Grid>
+                    <Grid x:Name="toIndicatorLayer" Visibility="{Binding toIndicatorOutput}">
+                        <Image x:Name="imagetoIndicator"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/direction_arrow_up.png" Margin="127,155,128,85" RenderTransformOrigin="0.5,0.5">
+                            <Image.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform/>
+                                    <SkewTransform/>
+                                    <RotateTransform Angle="180"/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
+                    <Grid x:Name="arrowUpDownLayer">
+                        <Image x:Name="imagearrowUpDown"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/arrow_up_down.png" Margin="121,65,121,42"/>
+                    </Grid>
+                    <Grid x:Name="middleArrowLayer">
+                        <Image x:Name="imagemiddleArrow"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/arrow_middle.png" Margin="131,99,132,79"/>
+                        <Grid.RenderTransform>
+                            <TranslateTransform X="{Binding courseShiftOutput}"/>
+                        </Grid.RenderTransform>
+                    </Grid>
+                </Grid>
+            </Grid>
+            <Grid x:Name="KCS55ABackLayer">
+                <Image x:Name="imageKCS55ABack" Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/KCS55v13.png" />
+            </Grid>
+
+            <Grid x:Name="headingMarkerLayer" RenderTransformOrigin="0.498,0.544">
+                <Image x:Name="imageheadingMarker"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/heading_marker.png" Margin="114,38,118,180"/>
+            </Grid>
+            <Grid x:Name="planeIconLayer">
+                <Image x:Name="imagePlaneIcon"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/plane_icon.png" Margin="116,125,116,93"/>
+            </Grid>
+            <Grid x:Name="glideScopeLayer" Visibility="{Binding noGlisOutput}">
+                <Image x:Name="imageglideScopeLeft"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/left_glis_marker.png" Height="11" Margin="21,138,235,111"/>
+                <Image x:Name="imageglideScopeRight"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/right_glis_marker.png" Height="11" Margin="236,136,24,112"/>
+                <Grid.RenderTransform>
+                    <TranslateTransform Y="{Binding glisShiftOutput}"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="navFlagLayer" Visibility="Hidden">
+                <Image x:Name="imageNavFlag"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/nav_flag.png" Margin="78,40,161,184"/>
+            </Grid>
+            <Grid x:Name="headFlagLayer" Visibility="Hidden">
+                <Image x:Name="imageHeadFlag"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/hdg_flag.png" Margin="157,40,82,184"/>
+            </Grid>
+            <Grid x:Name="headIndLayer">
+                <Image x:Name="imageheadInd"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/Indicator.png" Margin="105,22,105,155"/>
+            </Grid>
+            <Grid x:Name="arrowKnobLayer">
+                <Image x:Name="imagearrowKnob"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/arrow_cab.png" Margin="20,188,221,38" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-20.456"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+            <Grid x:Name="markerKnobLayer">
+                <Image x:Name="imagemarkerKnob"  Source="/TL410InstructorsWorkplace;component/Resourse/KCS55A/heading_cab.png" Margin="227,189,14,37" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-96.501"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+
+        </Grid>
+
+        <Grid x:Name="IKU" Margin="18,289,1509,394" Height="290">
+            <Grid.DataContext>
+                <viewModel:IKUViewModel/>
+            </Grid.DataContext>
+            <Grid x:Name="IKUBaseLayer" Height="290">
+                <Image x:Name="imageIKUBase" Source="/TL410InstructorsWorkplace;component/Resourse/IKU/IKUBase.png" Height="290"/>
+            </Grid>
+            <Grid x:Name="IKUCircleLayer" RenderTransformOrigin="0.5,0.431">
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding IKUHeadingAngle}"/>
+                </Grid.RenderTransform>
+                <Image x:Name="imageIKUCircle" Source="/TL410InstructorsWorkplace;component/Resourse/IKU/IKUCircle.png" Height="162" RenderTransformOrigin="0.5,0.5" Margin="35,44,36,84"/>
+            </Grid>
+            <Grid x:Name="IKUSmallArrowLayer" RenderTransformOrigin="0.498,0.434">
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding IKUBearing2Angle}"/>
+                </Grid.RenderTransform>
+                <Image x:Name="imageIKUSmallArrow" Source="/TL410InstructorsWorkplace;component/Resourse/IKU/IKUSmallArrow.png" Margin="51,100,52,137" RenderTransformOrigin="0.5,0.5">
+                    <Image.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="-90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.RenderTransform>
+                </Image>
+            </Grid>
+            <Grid x:Name="imageIKULongLayer" RenderTransformOrigin="0.498,0.434">
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding IKUBearing1Angle}"/>
+                </Grid.RenderTransform>
+                <Image x:Name="imageIKULongArrow" Source="/TL410InstructorsWorkplace;component/Resourse/IKU/IKULongArrow.png" Margin="44,46,46,86" >
+                    <Image.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="90"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Image.LayoutTransform>
+                </Image>
+            </Grid>
+            <Grid x:Name="IKUPinLayer">
+                <Image x:Name="imageIKUPin" Source="/TL410InstructorsWorkplace;component/Resourse/IKU/IKUPin.png" Width="25" Height="25" Margin="118,114,118,150"/>
+            </Grid>
+            <Grid x:Name="IKUKnob1Layer">
+                <Image x:Name="imageIKUKnob1" Source="/TL410InstructorsWorkplace;component/Resourse/IKU/IKUKnob1.png" HorizontalAlignment="Left" Height="35" Margin="34,204,0,0" VerticalAlignment="Top" Width="47"/>
+            </Grid>
+            <Grid  x:Name="IKUKnob2Layer">
+                <Image x:Name="imageIKUKnob2" Source="/TL410InstructorsWorkplace;component/Resourse/IKU/IKUKnob2.png" HorizontalAlignment="Left" Height="35" Margin="191,207,0,0" VerticalAlignment="Top" Width="47"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid x:Name="VD10K"  Height="286" Margin="555,269,970,418">
+            <Grid.DataContext>
+                <viewModel:VD10KViewModel/>
+            </Grid.DataContext>
+            <Grid x:Name="VD10KInScaleLayer">
+                <TextBlock x:Name="textBlock19" Margin="183,115,35,156" Foreground="White" TextWrapping="Wrap" Text="{Binding PilotPressureOutput}" FontSize="16" FontFamily="GOST 2930-62 PART 1" TextAlignment="Center"/>
+            </Grid>
+            <Grid x:Name="VD10KBaseLayer" >
+                <Image x:Name="imageVD10KBase" Source="/TL410InstructorsWorkplace;component/Resourse/VD10K/VD10kBase.png" Height="286"/>
+            </Grid>
+            <Grid x:Name="VD10KKmArrowLayer" RenderTransformOrigin="0.505,0.429">
+                <Image x:Name="imageVD10KKmArrow" Source="/TL410InstructorsWorkplace;component/Resourse/VD10K/VD10KKmArrow.png" Margin="115,70,112,138"/>
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding VD10KAltitudeKmAngle}"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="VD10KMetArrowLayer" RenderTransformOrigin="0.505,0.429">
+                <Image x:Name="imageVD10KMetArrow" Source="/TL410InstructorsWorkplace;component/Resourse/VD10K/VD10KMetArrow.png" Margin="116,36,112,106"/>
+                <Grid.RenderTransform>
+                    <RotateTransform Angle="{Binding VD10KAltitudeMetAngle}"/>
+                </Grid.RenderTransform>
+            </Grid>
+            <Grid x:Name="VD10KPinLayer">
+                <Image x:Name="imageVD10KPin" Source="/TL410InstructorsWorkplace;component/Resourse/VD10K/VD10KPin.png" Margin="99,115,95,155" />
+            </Grid>
+            <Grid x:Name="VD10KKnobLayer">
+                <Image x:Name="imageVD10KKnob" Source="/TL410InstructorsWorkplace;component/Resourse/VD10K/VD10KKnob.png"  Height="45" Margin="104,238,108,3" Width="52"/>
+            </Grid>
+        </Grid>
+
+        <Grid x:Name="ILS" Height="290" Margin="18,612,1476,71" Width="295">
+            <Grid.DataContext>
+                <viewModel:ILSViewModel/>
+            </Grid.DataContext>
+            <Grid x:Name="ILSCenterLayer">
+                <Image x:Name="imageILSCenter" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSCenter.png" Margin="49,62,52,56"/>
+            </Grid>
+            <Grid x:Name="ILSHorzLineLayer">
+                <Grid.RenderTransform>
+                    <TranslateTransform Y="{Binding ILSGlisShiftOutput}"/>
+                </Grid.RenderTransform>
+                <Image x:Name="imageILSHorzLine" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSGorzLine.png" Margin="67,147,70,127"/>
+            </Grid>
+            <Grid x:Name="ILSVertLineLayer">
+                <Grid.RenderTransform>
+                    <TranslateTransform X="{Binding ILSCourseShiftOutput}"/>
+                </Grid.RenderTransform>
+                <Image x:Name="imageILSVertLine" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSVertLine.png" Margin="80,68,83,57"/>
+            </Grid>
+            <Grid x:Name="ILSGlisFlagLayer" Visibility="{Binding ILSNoGlisOutput}">
+                <Image x:Name="imageILSGlisFlag" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSGlisFlag.png" Margin="189,136,58,113"/>
+            </Grid>
+            <Grid x:Name="ILSCourseFlagLayer" Visibility="{Binding ILSNoCourseOutput}">
+                <Image x:Name="imageILSCourseFlag" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSCourseFlag.png" Margin="123,205,126,44"/>
+            </Grid>
+            <Grid x:Name="ILSBaseLayer">
+                <Image x:Name="imageILSBase" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSBase.png"/>
+            </Grid>
+            <Grid x:Name="ILSOuterMarkerLightLayer" Visibility="{Binding ILSOuterMarkerOutput}">
+                <Image x:Name="imageOuterMarkerLight" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSOuterLight.png" Margin="71,18,191,240" Width="33" Height="33"/>
+            </Grid>
+            <Grid x:Name="ILSMiddleMarkerLightLayer" Visibility="{Binding ILSMiddleMarkerOutput}">
+                <Image x:Name="imageMiddleMarkerLight" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSMiddleLight.png" Margin="130,5,132,252" Width="33" Height="33"/>
+            </Grid>
+            <Grid x:Name="ILSInnerMarkerLightLayer" Visibility="{Binding ILSInnerMarkerOutput}">
+                <Image x:Name="imageInnerMarkerLight" Source="/TL410InstructorsWorkplace;component/Resourse/ILS/ILSInnerLight.png" Margin="187,18,75,239" Width="33" Height="33"/>
+            </Grid>
+
+        </Grid>
+
+        <Grid x:Name="SignalLightPanel" HorizontalAlignment="Left" Height="188" Margin="808,50,0,0" VerticalAlignment="Top" Width="953">
+            <Grid.DataContext>
+                <viewModel:SignalPanelViewModel/>
+            </Grid.DataContext>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Border BorderBrush="Black" Background="{Binding fFIRE1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                <TextBlock x:Name="textBlock" TextWrapping="Wrap" Text="ПОЖАР" Height="22" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fKR1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="0">
+                <TextBlock x:Name="textBlock1" TextWrapping="Wrap" Text="Mk TMT" Height="47" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="24,-1,20,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fSC1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="0">
+                <TextBlock x:Name="textBlock2" TextWrapping="Wrap" Text="НАСОС ФЛЮГИР." Height="47" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fHYD1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="0">
+                <TextBlock x:Name="textBlock3" TextWrapping="Wrap" Text="ГИДРАВЛ." Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fOL1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                <TextBlock x:Name="textBlock4" TextWrapping="Wrap" Text="ДАВЛ МАСЛА" Height="47" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fCEBO1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="1">
+                <TextBlock x:Name="textBlock5" TextWrapping="Wrap" Text="ЦЭБО" Height="21" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="23,12,21,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFI1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="1">
+                <TextBlock x:Name="textBlock6" TextWrapping="Wrap" Text="ДИАПАЗОН ß" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fIPSPROP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3"  Grid.Column="1">
+                <TextBlock x:Name="textBlock7" TextWrapping="Wrap" Text="ПОС ВИНТА" Height="47" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,-1,3,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="2">
+                <TextBlock x:Name="textBlock8" TextWrapping="Wrap" Text="ДАВЛ. ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fISOLVAVLE1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="2">
+                <TextBlock x:Name="textBlock9" TextWrapping="Wrap" Text="ИЗОЛИР. КЛАПАН" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGENERATOR1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="2">
+                <TextBlock x:Name="textBlock10" TextWrapping="Wrap" Text="ГЕНЕР." Height="20" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,10,7,15" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fICESEP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3"  Grid.Column="2">
+                <TextBlock x:Name="textBlock11" TextWrapping="Wrap" Text="СЕПАР. ЛЬДА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGP1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="3">
+                <TextBlock x:Name="textBlock12" TextWrapping="Wrap" Text="МИН ЗАПАС ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTR1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="3">
+                <TextBlock x:Name="textBlock13" TextWrapping="Wrap" Text="ПРЕОБР. I" Height="22" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="4,11,4,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTR3Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="3">
+                <TextBlock x:Name="textBlock14" TextWrapping="Wrap" Text="ПРЕОБР. III" Height="23" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,9,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fICELight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="3">
+                <TextBlock x:Name="textBlock15" TextWrapping="Wrap" Text="ОБЛЕД." Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFBYPASS1Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="4">
+                <TextBlock x:Name="textBlock16" TextWrapping="Wrap" Text="ПЕРЕПУСК ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fTR2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="4">
+                <TextBlock x:Name="textBlock17" TextWrapping="Wrap" Text="ПРЕОБР. II" Height="22" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,12,3,11" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fNISLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="4">
+                <TextBlock x:Name="textBlock18" TextWrapping="Wrap" Text="ЗАПУСК" Height="23" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,9,9,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="4"/>
+            <Border BorderBrush="Black" Background="{Binding fFUELPUMPLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="5">
+                <TextBlock x:Name="textBlock20" TextWrapping="Wrap" Text="ПЕРЕКАЧ ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fSTALLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="5">
+                <TextBlock x:Name="textBlock21" TextWrapping="Wrap" Text="СРЫВ" Height="22" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="24,10,20,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFASLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="5">
+                <TextBlock x:Name="textBlock22" TextWrapping="Wrap" Text="АЭРОДР. ИСТОЧ." Height="47" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="5"/>
+            <Border BorderBrush="Black" Background="{Binding fFBYPASS2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="6">
+                <TextBlock x:Name="textBlock24" TextWrapping="Wrap" Text="ПЕРЕПУСК ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black"  BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="6"/>
+            <Border BorderBrush="Black" Background="{Binding fBATTLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="6">
+                <TextBlock x:Name="textBlock26" TextWrapping="Wrap" Text="АККУМ" Height="21" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,12,9,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fCALLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="6">
+                <TextBlock x:Name="textBlock27" TextWrapping="Wrap" Text="ВЫЗОВ" Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.ColumnSpan="2" Grid.Column="7">
+                <TextBlock x:Name="textBlock28" TextWrapping="Wrap" Text="МИН ЗАПАС ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fWHEELLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="7">
+                <TextBlock x:Name="textBlock29" TextWrapping="Wrap" Text="ПЕРЕД. КОЛЕС" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fLOWALCLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="7">
+                <TextBlock x:Name="textBlock30" TextWrapping="Wrap" Text="МИНИМУМ СПИРТА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="7"/>
+            <Border BorderBrush="Black" Background="{Binding fTP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="8">
+                <TextBlock x:Name="textBlock32" TextWrapping="Wrap" Text="ДАВЛ. ТОПЛИВА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fISOLVAVLE2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="8">
+                <TextBlock x:Name="textBlock33" TextWrapping="Wrap" Text="ИЗОЛИР. КЛАПАН" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fGENERATOR2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="8">
+                <TextBlock x:Name="textBlock34" TextWrapping="Wrap" Text="ГЕНЕР." Height="20" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,10,7,15" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fICESEP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="8">
+                <TextBlock x:Name="textBlock35" TextWrapping="Wrap" Text="СЕПАР. ЛЬДА" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fOL2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="9">
+                <TextBlock x:Name="textBlock36" TextWrapping="Wrap" Text="ДАВЛ МАСЛА" Height="47" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="14,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fCEBO2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="9" >
+                <TextBlock x:Name="textBlock37" TextWrapping="Wrap" Text="ЦЭБО" Height="21" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="23,12,21,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFI2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="9">
+                <TextBlock x:Name="textBlock38" TextWrapping="Wrap" Text="ДИАПАЗОН ß" Height="47" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fIPSPROP2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="9">
+                <TextBlock x:Name="textBlock39" TextWrapping="Wrap" Text="ПОС ВИНТА" Height="47" Width="77" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="5,-1,3,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fFIRE2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="10">
+                <TextBlock x:Name="textBlock40" TextWrapping="Wrap" Text="ПОЖАР" Height="22" Width="62" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="13,10,10,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fKR2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="10">
+                <TextBlock x:Name="textBlock41" TextWrapping="Wrap" Text="Mk TMT" Height="47" Width="41" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="24,-1,20,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fSC2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="10">
+                <TextBlock x:Name="textBlock42" TextWrapping="Wrap" Text="НАСОС ФЛЮГИР." Height="47" Width="64" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="12,-1,9,-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="Black" Background="{Binding fHYD2Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="3" Grid.Column="10">
+                <TextBlock x:Name="textBlock43" TextWrapping="Wrap" Text="ГИДРАВЛ." Height="22" Width="87" Foreground="Black" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,10,-1,13" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+            </Border>
+            <Border BorderBrush="White" BorderThickness="3" Height="141" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="5" Grid.Column="3" Margin="1,0,1,0"/>
+        </Grid>
+
+        <StackPanel x:Name="MiddlePanel" HorizontalAlignment="Left" Height="279" Margin="595,612,0,0" VerticalAlignment="Top" Width="184">
+            <StackPanel.DataContext>
+                <viewModel:MiddlePanelViewModel/>
+            </StackPanel.DataContext>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding mkLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="Mk" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding mkROutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding tmtLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="TMT" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding tmtROutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ngLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="RPME" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ngROutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nvLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="RPMP" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding nvROutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding gpLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="FUEL" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding gpROutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ptLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="FLPR" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding ptROutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding poLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="OLPR" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding poROutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding toLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="1" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="OLTT" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding toLOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="HYD" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding hydOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <StackPanel x:Name="DMEPanel" HorizontalAlignment="Left" Height="93" Margin="346,612,0,0" VerticalAlignment="Top" Width="184">
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="DME1" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding DME1}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="DME2" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding DME2}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+            <Border Background="Black">
+                <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="51"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="72"/>
+                        <ColumnDefinition Width="5"/>
+                        <ColumnDefinition Width="51"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="ATT" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                    <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                    <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding RADIOATT}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                </Grid>
+            </Border>
+        </StackPanel>
+
+        <Grid x:Name="CentralConsolePanel" HorizontalAlignment="Left" Height="624" Margin="970,307,0,0" VerticalAlignment="Top" Width="748">
+            <Grid.DataContext>
+                <viewModel:CentralConsolePanelViewModel/>
+            </Grid.DataContext>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="326,58,0,0" VerticalAlignment="Top" Width="107">
+                <Grid Margin="0,0,-1,0">
+                    <StackPanel >
+                        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="СКРАН" VerticalAlignment="Top" Width="106" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center" Background="#00000000"/>
+                        <StackPanel Height="31" Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding stkLDigitOutput}" VerticalAlignment="Top" Width="57" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding stkRDigitOutput}" VerticalAlignment="Top" Width="46" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                        </StackPanel>
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Grid x:Name="EmergencyStopValves" Height="172" Width="107"  VerticalAlignment="Top" Margin="326,120,315,0">
+                <Border BorderBrush="White" BorderThickness="2">
+                    <Grid>
+                        <Line Stroke="White" StrokeThickness="2" X1="26" Y1="0" X2="26" Y2="172"/>
+                        <Line Stroke="White" StrokeThickness="2" X1="77" Y1="0" X2="77" Y2="172"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="36" X2="107" Y2="36"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="46" X2="44" Y2="46"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="56" X2="44" Y2="56"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="66" X2="44" Y2="66"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="76" X2="44" Y2="76"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="86" X2="44" Y2="86"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="96" X2="44" Y2="96"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="106" X2="44" Y2="106"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="116" X2="44" Y2="116"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="126" X2="44" Y2="126"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="46" X2="95" Y2="46"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="56" X2="95" Y2="56"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="66" X2="95" Y2="66"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="76" X2="95" Y2="76"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="86" X2="95" Y2="86"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="96" X2="95" Y2="96"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="106" X2="95" Y2="106"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="116" X2="95" Y2="116"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="126" X2="95" Y2="126"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="136" X2="107" Y2="136"/>
+                        <Grid Background="Red" HorizontalAlignment="Left" Height="16" Margin="10,128,0,0" VerticalAlignment="Top" Width="32">
+                            <Grid.RenderTransform>
+                                <TranslateTransform Y="{Binding stkLOutput}"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+                        <Grid Background="Red" HorizontalAlignment="Left" Height="16" Margin="61,128,0,0" VerticalAlignment="Top" Width="32">
+                            <Grid.RenderTransform>
+                                <TranslateTransform Y="{Binding stkROutput}"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+            <StackPanel x:Name="CenterConsole" HorizontalAlignment="Left" Height="94" Margin="-10,258,0,0" VerticalAlignment="Top" Width="184">
+                <Border Background="Black">
+                    <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="51"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="72"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="51"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="ТВЫСТ" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                        <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding delvOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                    </Grid>
+                </Border>
+                <Border Background="Black">
+                    <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="51"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="72"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="51"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="ТФЛЕТ" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                        <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding delkOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                    </Grid>
+                </Border>
+                <Border Background="Black">
+                    <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="184">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="51"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="72"/>
+                            <ColumnDefinition Width="5"/>
+                            <ColumnDefinition Width="51"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="ТКУРС" VerticalAlignment="Top" Width="72" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center"/>
+                        <TextBlock Grid.Column="3" Text=":" RenderTransformOrigin="0.5,0.5" Foreground="GreenYellow" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextWrapping="Wrap" TextAlignment="Right"/>
+                        <TextBlock Grid.Column="4" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding delsOutput}" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="3,0,0,0"/>
+                    </Grid>
+                </Border>
+            </StackPanel>
+
+            <Grid HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="174" Margin="574,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding extingMainRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ГАШЕНИЕ ОСНОВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding extingSecondRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ГАШЕНИЕ ЗАПАС." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="174">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding extingMainLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ГАШЕНИЕ ОСНОВ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding extingSecondLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ГАШЕНИЕ ЗАПАС." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="174" Margin="0,192,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding limCheckLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ПРОВЕРКА ОГРАНИЧ. Л." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Bottom" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding limCheckRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ПРОВЕРКА ОГРАНИЧ. П." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="174" Margin="574,152,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding ignCheckLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ПРОВЕРКА ЗАЖИГ. Л." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ignCheckRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ПРОВЕРКА ЗАЖИГ. П." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="174" Margin="574,205,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding startLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАПУСК ЛЕВОГО" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding startRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАПУСК ПРАВОГО" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="174" Margin="574,258,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding ignLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАЖИГАНИЕ ЛЕВОГО" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding ignRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАЖИГАНИЕ ПРАВОГО" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="174" Margin="574,312,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding scLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ФЛЮГЕР. НАСОС. Л." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding scRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="1">
+                    <TextBlock TextWrapping="Wrap" Text="ФЛЮГЕР. НАСОС. П." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="87" Margin="619,82,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding ipsCheckLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ПРОВЕРКА ПОС ВИНТ." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="87" Margin="44,100,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding gearsLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ШАССИ" Height="24" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1,9,-1,12" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="88" Margin="212,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding tkLLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ТОПЛИВНЫЙ КРАН Л." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="87" Margin="453,0,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding tkRLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ТОПЛИВНЫЙ КРАН П." Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="87" Margin="212,342,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding emrgGearsLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="АВАР. УПР. ШАССИ" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="87" Margin="453,342,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding emrgFlapsLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="АВАР. УПР. ЗАКРЫЛКИ" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="48" VerticalAlignment="Top" Width="87" Margin="336,410,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Border BorderBrush="White" Background="{Binding wheelLight}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ПЕРЕДНЕЕ КОЛЕСО" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+            <Grid HorizontalAlignment="Left" Height="141" VerticalAlignment="Top" Width="87" Margin="619,393,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="87"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="47"/>
+                    <RowDefinition Height="47"/>
+                    <RowDefinition Height="47"/>
+                </Grid.RowDefinitions>
+                <Border BorderBrush="White" Background="{Binding flaps0Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="0" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАКРЫЛКИ 0°" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding flaps15Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="1" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАКРЫЛКИ 15°" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+                <Border BorderBrush="White" Background="{Binding flaps35Light}" BorderThickness="1" HorizontalAlignment="Left" Height="47" VerticalAlignment="Top" Width="87" Grid.Row="2" Grid.Column="0">
+                    <TextBlock TextWrapping="Wrap" Text="ЗАКРЫЛКИ 35°" Height="47" Width="87" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Margin="-1" FontFamily="GOST 2930-62 PART 1" FontSize="20"/>
+                </Border>
+            </Grid>
+        </Grid>
+        <Grid x:Name="ControlsVisualizationPanel" Margin="808,650,241,10">
+            <Grid.DataContext>
+                <viewModel:ControlsVisualizationViewModel/>
+            </Grid.DataContext>
+            <Grid x:Name="ColumnIndicator" HorizontalAlignment="Left" Height="320" VerticalAlignment="Top" Width="200">
+                <Line Stroke="White" StrokeThickness="4" X1="0" Y1="160" X2="200" Y2="160"></Line>
+                <Line Stroke="White" StrokeThickness="4" X1="0" Y1="33" X2="200" Y2="33"></Line>
+                <Line Stroke="White" StrokeThickness="4" X1="0" Y1="293" X2="200" Y2="293"></Line>
+                <Grid x:Name="translateLayer" RenderTransformOrigin="0.489,0.502">
+                    <Grid x:Name="rotateLayer" HorizontalAlignment="Left" Height="111" VerticalAlignment="Top" Width="200" RenderTransformOrigin="0.489,0.566" Margin="0,98,0,0">
+                        <Image x:Name="columnImage" Source="/TL410InstructorsWorkplace;component/Resourse/column.png" Height="118" VerticalAlignment="Top" Width="199" RenderTransformOrigin="0.489,0.532">
+                            <Image.RenderTransform>
+                                <RotateTransform Angle="{Binding delkOutput}"/>
+                            </Image.RenderTransform>
+                        </Image>
+                    </Grid>
+                    <Grid.RenderTransform>
+                        <TranslateTransform Y="{Binding delvOutput}"/>
+                    </Grid.RenderTransform>
+                </Grid>
+            </Grid>
+            <Grid x:Name="EngineControlsVisualization" HorizontalAlignment="Left" Height="172"  VerticalAlignment="Top" Width="214" Margin="248,123,0,0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Border x:Name="ThrustLevers" BorderBrush="White" BorderThickness="2" Grid.Column="0">
+                    <Grid>
+                        <Line Stroke="White" StrokeThickness="2" X1="26" Y1="0" X2="26" Y2="172"/>
+                        <Line Stroke="White" StrokeThickness="2" X1="77" Y1="0" X2="77" Y2="172"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="30" X2="107" Y2="30"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="37" X2="44" Y2="37"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="44" X2="44" Y2="44"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="51" X2="44" Y2="51"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="58" X2="44" Y2="58"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="65" X2="44" Y2="65"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="72" X2="44" Y2="72"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="79" X2="44" Y2="79"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="86" X2="44" Y2="86"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="93" X2="44" Y2="93"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="37" X2="95" Y2="37"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="44" X2="95" Y2="44"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="51" X2="95" Y2="51"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="58" X2="95" Y2="58"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="65" X2="95" Y2="65"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="72" X2="95" Y2="72"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="79" X2="95" Y2="79"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="86" X2="95" Y2="86"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="93" X2="95" Y2="93"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="100" X2="107" Y2="100"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="142" X2="107" Y2="142"/>
+                        <Grid Background="Gold" HorizontalAlignment="Left" Height="16" Margin="10,92,0,0" VerticalAlignment="Top" Width="32">
+                            <Grid.RenderTransform>
+                                <TranslateTransform Y="{Binding depLOutput}"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+                        <Grid Background="Gold" HorizontalAlignment="Left" Height="16" Margin="61,92,0,0" VerticalAlignment="Top" Width="32">
+                            <Grid.RenderTransform>
+                                <TranslateTransform Y="{Binding depROutput}"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+                    </Grid>
+                </Border>
+                <Border x:Name="BladePitchLever" BorderBrush="White" BorderThickness="2" Grid.Column="1">
+                    <Grid>
+                        <Line Stroke="White" StrokeThickness="2" X1="26" Y1="0" X2="26" Y2="172"/>
+                        <Line Stroke="White" StrokeThickness="2" X1="77" Y1="0" X2="77" Y2="172"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="30" X2="107" Y2="30"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="37" X2="44" Y2="37"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="44" X2="44" Y2="44"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="51" X2="44" Y2="51"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="58" X2="44" Y2="58"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="65" X2="44" Y2="65"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="72" X2="44" Y2="72"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="79" X2="44" Y2="79"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="86" X2="44" Y2="86"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="8" Y1="93" X2="44" Y2="93"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="37" X2="95" Y2="37"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="44" X2="95" Y2="44"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="51" X2="95" Y2="51"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="58" X2="95" Y2="58"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="65" X2="95" Y2="65"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="72" X2="95" Y2="72"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="79" X2="95" Y2="79"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="86" X2="95" Y2="86"/>
+                        <Line Stroke="White" StrokeThickness="1" X1="59" Y1="93" X2="95" Y2="93"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="100" X2="107" Y2="100"/>
+                        <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="142" X2="107" Y2="142"/>
+                        <Grid Background="YellowGreen" HorizontalAlignment="Left" Height="16" Margin="10,92,0,0" VerticalAlignment="Top" Width="32">
+                            <Grid.RenderTransform>
+                                <TranslateTransform Y="{Binding devLOutput}"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+                        <Grid Background="YellowGreen" HorizontalAlignment="Left" Height="16" Margin="61,92,0,0" VerticalAlignment="Top" Width="32">
+                            <Grid.RenderTransform>
+                                <TranslateTransform Y="{Binding devROutput}"/>
+                            </Grid.RenderTransform>
+                        </Grid>
+                    </Grid>
+                </Border>
+            </Grid>
+            <Border x:Name="PedalPosition" BorderBrush="White" BorderThickness="2" HorizontalAlignment="Left" Height="122" Margin="498,173,0,0" VerticalAlignment="Top" Width="204">
+                <Grid>
+                    <Line Stroke="Red" StrokeThickness="2" X1="0" Y1="59" X2="200" Y2="59"/>
+                    <Line Stroke="White" StrokeThickness="3" X1="100" Y1="0" X2="100" Y2="118"/>
+                    <Grid Background="Black" HorizontalAlignment="Left" Height="48" Margin="30,35,0,0" VerticalAlignment="Top" Width="38">
+                        <Grid.RenderTransform>
+                            <TranslateTransform Y="{Binding delsLOutput}"/>
+                        </Grid.RenderTransform>
+                        <Border BorderBrush="White" BorderThickness="1"/>
+                    </Grid>
+                    <Grid Background="Black"  HorizontalAlignment="Left" Height="48" Margin="133,35,0,0" VerticalAlignment="Top" Width="38">
+                        <Grid.RenderTransform>
+                            <TranslateTransform Y="{Binding delsROutput}"/>
+                        </Grid.RenderTransform>
+                        <Border BorderBrush="White" BorderThickness="1"/>
+                    </Grid>
+                    <Border Background="Black" Height="31" Margin="30,-40,23,127">
+                        <Grid HorizontalAlignment="Left" Height="31" VerticalAlignment="Top" Width="147">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="40"/>
+                                <ColumnDefinition Width="51"/>
+                                <ColumnDefinition Width="43"/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Grid.Column="0" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding brkLOutput}" VerticalAlignment="Top" Width="40" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock Grid.Column="1" HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="BRK" VerticalAlignment="Top" Width="51" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center" Grid.ColumnSpan="2" Margin="6,0,0,0"/>
+                            <TextBlock Grid.Column="2" HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding brkROutput}" VerticalAlignment="Top" Width="40" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center" Margin="10,0,-6,0"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="248,61,0,0" VerticalAlignment="Top" Width="107">
+                <Grid Margin="0,0,-1,0">
+                    <StackPanel >
+                        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="РУД" VerticalAlignment="Top" Width="106" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center" Background="#00000000" BorderBrush="#00ABADB3"/>
+                        <StackPanel Height="31" Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding depLDigitOutput}" VerticalAlignment="Top" Width="57" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding depRDigitOutput}" VerticalAlignment="Top" Width="46" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="62" Margin="355,61,0,0" VerticalAlignment="Top" Width="107">
+                <Grid Margin="0,0,-1,0">
+                    <StackPanel >
+                        <TextBox HorizontalAlignment="Left" TextWrapping="Wrap"  Foreground="GreenYellow" Text="РУВ" VerticalAlignment="Top" Width="106" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" TextAlignment="Center" Background="#00000000" BorderBrush="#00ABADB3"/>
+                        <StackPanel Height="31" Orientation="Horizontal">
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding devLDigitOutput}" VerticalAlignment="Top" Width="57" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                            <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding devRDigitOutput}" VerticalAlignment="Top" Width="46" Height="31" FontFamily="GOST 2930-62 PART 1" FontSize="28" Foreground="White" TextAlignment="Center"/>
+                        </StackPanel>
+
+                    </StackPanel>
+                </Grid>
+            </Border>
+        </Grid>
+
+    </Grid>
+</UserControl>
